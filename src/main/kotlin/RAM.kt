@@ -2,14 +2,15 @@
 
 
 class RAM {
-    val memory: ByteArray = ByteArray(4096)
+    @OptIn(ExperimentalUnsignedTypes::class)
+    val memory: UByteArray = UByteArray(4096)
 
 
-    fun read(address: Int): Byte{
+    fun read(address: Int): UByte{
         TODO()
     }
 
-    fun write(address: Int, value: Byte){
+    fun write(address: Int, value: UByte){
         //stuff
     }
 

@@ -10,8 +10,8 @@ class CPU {
 
     @OptIn(ExperimentalStdlibApi::class)
     fun fetchInstruction(rom: ROM) : IntArray{
-        val byte1 = rom.read(programCounter).toUByte()
-        val byte2 = rom.read(programCounter + 1).toUByte()
+        val byte1 = rom.read(programCounter)
+        val byte2 = rom.read(programCounter + 1)
         val firstNibble = byte1.toInt() shr 4
         val secondNibble = byte1.toInt() and 0xF
         val thirdNibble = byte2.toInt() shr 4

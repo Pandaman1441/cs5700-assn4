@@ -28,7 +28,7 @@ object Emulator {
                 end()
             }
             else {
-                instructions[nibbles[0]]?.processInstruction(nibbles)
+                //instructions[nibbles[0]]?.processInstruction(nibbles)
             }
         }
     }
