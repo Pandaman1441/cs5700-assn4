@@ -1,22 +1,19 @@
 package templates
 
+import Emulator
+
 class Add : Instruction() {
-    override fun splitBytes(instruction: Byte): IntArray {
-        println("spliting bytes")
-        val bytes = IntArray(3)
-        val rX: Int
-        val rY: Int
-        val rZ: Int
-        TODO()
+    override fun organizeBytes(instruction: IntArray): IntArray {
+        return instruction
     }
 
     override fun operation(bytes: IntArray): Int {
-        TODO("Not yet implemented")
+        Emulator.cpu.registers[bytes[3]] = bytes[1] + bytes[2]
+        return 2
     }
 
     override fun adjustProgramCounter(increment: Int) {
-        TODO("Not yet implemented")
+        Emulator.cpu.programCounter += increment
     }
-
 }
 

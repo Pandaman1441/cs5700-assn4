@@ -1,3 +1,4 @@
+import java.io.File
 
 
 class ROM {
@@ -5,10 +6,14 @@ class ROM {
 
     fun loadProgram(path: String){
         //stuff
+        val file = File(path)
+        val program = file.readBytes()
+        System.arraycopy(program,0,memory,0, program.size)
     }
 
-    fun read(address: Int){
+    fun read(address: Int): Byte{
         //stuff
+        return memory[address]
     }
 
     fun clearMemory(){

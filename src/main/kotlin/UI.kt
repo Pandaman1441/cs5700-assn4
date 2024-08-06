@@ -5,4 +5,5 @@ fun main(args: Array<String>){
     val input = readln()
     // start the emulator and pass the input
     println(input)
+    Emulator.start()
 }
