@@ -2,10 +2,16 @@ import templates.Instruction
 
 class Skip_Equal : Instruction() {
     override fun organizeBytes(instruction: IntArray): IntArray {
-        TODO("Not yet implemented")
+        return instruction
     }
 
     override fun operation(bytes: IntArray): Int {
-        TODO("Not yet implemented")
+        val rX = Emulator.cpu.registers[bytes[1]]
+        val rY = Emulator.cpu.registers[bytes[2]]
+        return if (rX == rY){
+            4
+        } else{
+            2
+        }
     }
 }
