@@ -8,7 +8,6 @@ class CPU {
     var registers: IntArray = IntArray(8)
 
 
-    @OptIn(ExperimentalStdlibApi::class)
     fun fetchInstruction(rom: ROM) : IntArray{
         val byte1 = rom.read(programCounter)
         val byte2 = rom.read(programCounter + 1)
