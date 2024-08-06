@@ -2,7 +2,7 @@ import templates.Instruction
 
 
 class Convert_Byte_to_ASCII : Instruction() {
-    override fun splitBytes(instruction: Byte): IntArray {
+    override fun organizeBytes(instruction: IntArray): IntArray {
         TODO("Not yet implemented")
     }
 

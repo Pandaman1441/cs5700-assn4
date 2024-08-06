@@ -1,7 +1,7 @@
 import templates.Instruction
 
 class Switch_Memory : Instruction() {
-    override fun splitBytes(instruction: Byte): IntArray {
+    override fun organizeBytes(instruction: IntArray): IntArray {
         TODO("Not yet implemented")
     }
 

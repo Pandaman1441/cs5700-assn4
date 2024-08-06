@@ -23,18 +23,22 @@ object Emulator {
 
     fun executeCycle(){
         //stuff
-        while (cpu.programCounter < 36) {
+        var running = true
+        while (running) {
             val nibbles = cpu.fetchInstruction(rom)
-            if (nibbles[0] == 0 && nibbles[1] == 0){
+            println(nibbles.joinToString("") {it.toString(16)})
+            if (nibbles.joinToString("") {it.toString(16)} == "0000"){
+                running = false
                 end()
             }
             else {
-                instructions[nibbles[0]]?.processInstruction(nibbles)
+                //instructions[nibbles[0]]?.processInstruction(nibbles)
             }
         }
     }
 
     fun end(){
         //stuff
+        println("Goodbye")
     }
 }

@@ -1,7 +1,7 @@
 import templates.Instruction
 
 class Convert_to_Base_10 : Instruction() {
-    override fun splitBytes(instruction: Byte): IntArray {
+    override fun organizeBytes(instruction: IntArray): IntArray {
         TODO("Not yet implemented")
     }
 

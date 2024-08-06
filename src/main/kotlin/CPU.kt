@@ -22,10 +22,10 @@ class CPU {
         val nibbleArray: IntArray = intArrayOf(firstNibble,secondNibble,thirdNibble,fourthNibble)
 
 
-        print("$programCounter: ")
-        print(byte1.toHexString())
-        print(byte2.toHexString())
-        println()
+//        print("$programCounter: ")
+//        print(byte1.toHexString())
+//        print(byte2.toHexString())
+//        println()
         programCounter++
         programCounter++
 
