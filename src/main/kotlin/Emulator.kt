@@ -11,7 +11,7 @@ object Emulator {
     private val instructions: Array<Instruction?> = arrayOf(
         Store(),Add(),Sub(),Read(),
         Write(),Jump(),Read_Keyboard(),Switch_Memory(),
-        Skip_Equal(),Skip_Not_Equal(),Set_A(),Set_T(),
+        Skip_Equal(),Skip_Not_Equal(), Set_A(),Set_T(),
         Read_T(),Convert_to_Base_10(),Convert_Byte_to_ASCII(),Draw()
     )
 
@@ -52,8 +52,6 @@ object Emulator {
 
     fun executeCycle(){
         val nibbles = cpu.fetchInstruction(rom)
-        //println(nibbles.joinToString("") {it.toString(16)})
-        val r0 = Emulator.cpu.registers[0]
         try {
             if (nibbles.joinToString("") {it.toString(16)} == "0000"){
                 end()

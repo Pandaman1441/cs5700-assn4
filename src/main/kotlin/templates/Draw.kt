@@ -12,8 +12,6 @@ class Draw : Instruction() {
         if (rXValue > 0x7F) {
             throw IllegalArgumentException("Value in r$rX is greater than 0x7F")
         }
-        val row =bytes[2]
-        val column = bytes[3]
         val character = rXValue.toChar()
         Emulator.screen.writeChar(character,bytes[2],bytes[3])
         Emulator.screen.display()

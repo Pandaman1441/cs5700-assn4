@@ -3,7 +3,7 @@ package templates
 import Emulator
 
 abstract class Instruction {    // At fetchInstruction in the CPU we decide which instruction to call
-    public fun processInstruction(instruction: IntArray){
+    fun processInstruction(instruction: IntArray){
         val bytes = organizeBytes(instruction)
         val increment = operation(bytes)
         adjustProgramCounter(increment)

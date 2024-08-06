@@ -1,5 +1,4 @@
 import templates.Instruction
-import java.util.*
 
 
 class Read_Keyboard : Instruction() {

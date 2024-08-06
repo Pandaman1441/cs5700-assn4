@@ -1,4 +1,5 @@
-import templates.Instruction
+package templates
+
 
 class Set_A : Instruction() {
     override fun organizeBytes(instruction: IntArray): IntArray {
