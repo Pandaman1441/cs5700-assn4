@@ -10,4 +10,8 @@ class ROM {
     fun read(address: Int){
         //stuff
     }
+
+    fun clearMemory(){
+        //stuff
+    }
 }

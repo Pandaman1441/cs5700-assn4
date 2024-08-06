@@ -12,4 +12,8 @@ class RAM {
     fun write(address: Int, value: Byte){
         //stuff
     }
+
+    fun clearMemory(){
+        //stuff
+    }
 }
