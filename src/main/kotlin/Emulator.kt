@@ -16,12 +16,16 @@ object Emulator {
     )
 
     private val executor = Executors.newSingleThreadScheduledExecutor()
+    private val timerExecutor = Executors.newSingleThreadScheduledExecutor()
 
     fun start(input: String){
         rom.loadProgram(input)
 
         val cpuRunnable = Runnable {
             executeCycle()
+        }
+        val timerRunnable = Runnable {
+            cpu.timerTick()
         }
 
         val cpuFuture = executor.scheduleAtFixedRate(
@@ -30,32 +34,42 @@ object Emulator {
             1000L / 500L,
             TimeUnit.MILLISECONDS
         )
+        val timerFuture = timerExecutor.scheduleAtFixedRate(
+            timerRunnable,
+            0,
+            16,
+            TimeUnit.MILLISECONDS
+        )
 
         try{
             cpuFuture.get()
         }catch (_: Exception){
             executor.shutdown()
+            timerExecutor.shutdown()
         }
 
     }
 
     fun executeCycle(){
-        var running = true
-        while (running) {
-            val nibbles = cpu.fetchInstruction(rom)
-            println(nibbles.joinToString("") {it.toString(16)})
+        val nibbles = cpu.fetchInstruction(rom)
+        println(nibbles.joinToString("") {it.toString(16)})
+        val r0 = Emulator.cpu.registers[0]
+        try {
             if (nibbles.joinToString("") {it.toString(16)} == "0000"){
-                running = false
                 end()
             }
             else {
-                //instructions[nibbles[0]]?.processInstruction(nibbles)
+                instructions[nibbles[0]]?.processInstruction(nibbles)
             }
+        } catch (e: IllegalArgumentException) {
+            println("Error: ${e.message}")
+            end()
         }
     }
 
     fun end(){
         executor.shutdown()
+        timerExecutor.shutdown()
         println("Goodbye")
     }
 }

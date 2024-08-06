@@ -6,7 +6,9 @@ class Sub : Instruction() {
     }
 
     override fun operation(bytes: IntArray): Int {
-        Emulator.cpu.registers[bytes[3]] = bytes[1] - bytes[2]
+        val rX = Emulator.cpu.registers[bytes[1]]
+        val rY = Emulator.cpu.registers[bytes[2]]
+        Emulator.cpu.registers[bytes[3]] = rX - rY
         return 2
     }
 }

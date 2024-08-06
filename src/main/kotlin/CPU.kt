@@ -17,13 +17,12 @@ class CPU {
         val fourthNibble = byte2.toInt() and 0xF
         val nibbleArray: IntArray = intArrayOf(firstNibble,secondNibble,thirdNibble,fourthNibble)
 
-        programCounter++
-        programCounter++
-
         return nibbleArray
     }
 
     fun timerTick(){
-        //stuff
+        if (timer > 0){
+            timer--
+        }
     }
 }

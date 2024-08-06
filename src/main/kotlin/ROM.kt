@@ -5,7 +5,6 @@ class ROM {
     val memory: UByteArray = UByteArray(4096)
 
     fun loadProgram(path: String){
-        //stuff
         val file = File(path)
         val program = file.readBytes()
         for (i in program.indices){
@@ -14,12 +13,7 @@ class ROM {
     }
 
     fun read(address: Int): UByte {
-        //stuff
         return memory[address]
-    }
-
-    fun clearMemory(){
-        //stuff
     }
 
     fun write(address: Int, value: UByte){
