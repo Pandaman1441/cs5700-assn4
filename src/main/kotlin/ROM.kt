@@ -19,4 +19,8 @@ class ROM {
     fun clearMemory(){
         //stuff
     }
+
+    fun write(address: Int, value: Byte){
+        println("Attempted to write to ROM")
+    }
 }
