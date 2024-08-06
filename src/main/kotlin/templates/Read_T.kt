@@ -2,10 +2,11 @@ import templates.Instruction
 
 class Read_T : Instruction() {
     override fun organizeBytes(instruction: IntArray): IntArray {
-        TODO("Not yet implemented")
+        return instruction
     }
 
     override fun operation(bytes: IntArray): Int {
-        TODO("Not yet implemented")
+        Emulator.cpu.registers[bytes[1]] = Emulator.cpu.timer
+        return 2
     }
 }
