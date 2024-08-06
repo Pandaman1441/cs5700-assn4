@@ -1,4 +1,6 @@
 import templates.*
+import java.util.concurrent.Executors
+import java.util.concurrent.TimeUnit
 
 object Emulator {
     val cpu = CPU()
@@ -13,9 +15,28 @@ object Emulator {
         Read_T(),Convert_to_Base_10(),Convert_Byte_to_ASCII(),Draw()
     )
 
+    private val executor = Executors.newSingleThreadScheduledExecutor()
+
     fun start(input: String){
         rom.loadProgram(input)
-        executeCycle()
+
+        val cpuRunnable = Runnable {
+            executeCycle()
+        }
+
+        val cpuFuture = executor.scheduleAtFixedRate(
+            cpuRunnable,
+            0,
+            1000L / 500L,
+            TimeUnit.MILLISECONDS
+        )
+
+        try{
+            cpuFuture.get()
+        }catch (_: Exception){
+            executor.shutdown()
+        }
+
     }
 
     fun executeCycle(){
@@ -34,6 +55,7 @@ object Emulator {
     }
 
     fun end(){
+        executor.shutdown()
         println("Goodbye")
     }
 }
