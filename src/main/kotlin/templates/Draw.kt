@@ -15,7 +15,6 @@ class Draw : Instruction() {
         val row =bytes[2]
         val column = bytes[3]
         val character = rXValue.toChar()
-        println("writing character '$character' (ASCII: $rXValue) to screen at row $row, column $column")
         Emulator.screen.writeChar(character,bytes[2],bytes[3])
         Emulator.screen.display()
         return 2

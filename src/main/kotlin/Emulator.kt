@@ -52,7 +52,7 @@ object Emulator {
 
     fun executeCycle(){
         val nibbles = cpu.fetchInstruction(rom)
-        println(nibbles.joinToString("") {it.toString(16)})
+        //println(nibbles.joinToString("") {it.toString(16)})
         val r0 = Emulator.cpu.registers[0]
         try {
             if (nibbles.joinToString("") {it.toString(16)} == "0000"){

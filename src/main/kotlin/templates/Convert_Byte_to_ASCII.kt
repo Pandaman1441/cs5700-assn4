@@ -19,7 +19,7 @@ class Convert_Byte_to_ASCII : Instruction() {
             rXValue + 0x37
         }
 
-        Emulator.cpu.registers[bytes[2]] = rXValue
+        Emulator.cpu.registers[bytes[2]] = asciiValue
         return 2
     }
 }
