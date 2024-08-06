@@ -8,9 +8,4 @@ class Read_T : Instruction() {
     override fun operation(bytes: IntArray): Int {
         TODO("Not yet implemented")
     }
-
-    override fun adjustProgramCounter(increment: Int) {
-        TODO("Not yet implemented")
-    }
-
 }

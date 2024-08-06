@@ -1,5 +1,7 @@
 package templates
 
+import Emulator
+
 abstract class Instruction {    // At fetchInstruction in the CPU we decide which instruction to call
     public fun processInstruction(instruction: IntArray){
         val bytes = organizeBytes(instruction)
@@ -8,5 +10,7 @@ abstract class Instruction {    // At fetchInstruction in the CPU we decide whic
     }
     protected abstract fun organizeBytes(instruction: IntArray) : IntArray
     protected abstract fun operation(bytes: IntArray) : Int
-    protected abstract fun adjustProgramCounter(increment: Int)
+    fun adjustProgramCounter(increment: Int){
+        Emulator.cpu.programCounter += increment
+    }
 }

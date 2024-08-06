@@ -2,15 +2,11 @@ import templates.Instruction
 
 class Sub : Instruction() {
     override fun organizeBytes(instruction: IntArray): IntArray {
-        TODO("Not yet implemented")
+        return instruction
     }
 
     override fun operation(bytes: IntArray): Int {
-        TODO("Not yet implemented")
+        Emulator.cpu.registers[bytes[3]] = bytes[1] - bytes[2]
+        return 2
     }
-
-    override fun adjustProgramCounter(increment: Int) {
-        TODO("Not yet implemented")
-    }
-
 }

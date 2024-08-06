@@ -13,16 +13,12 @@ object Emulator {
         Read_T(),Convert_to_Base_10(),Convert_Byte_to_ASCII(),Draw()
     )
 
-
-
-    fun start(){
-        //Stuff
-        rom.loadProgram("roms/addition.out")
+    fun start(input: String){
+        rom.loadProgram(input)
         executeCycle()
     }
 
     fun executeCycle(){
-        //stuff
         var running = true
         while (running) {
             val nibbles = cpu.fetchInstruction(rom)
@@ -32,13 +28,12 @@ object Emulator {
                 end()
             }
             else {
-                //instructions[nibbles[0]]?.processInstruction(nibbles)
+                instructions[nibbles[0]]?.processInstruction(nibbles)
             }
         }
     }
 
     fun end(){
-        //stuff
         println("Goodbye")
     }
 }

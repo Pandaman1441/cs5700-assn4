@@ -11,9 +11,5 @@ class Add : Instruction() {
         Emulator.cpu.registers[bytes[3]] = bytes[1] + bytes[2]
         return 2
     }
-
-    override fun adjustProgramCounter(increment: Int) {
-        Emulator.cpu.programCounter += increment
-    }
 }
 
